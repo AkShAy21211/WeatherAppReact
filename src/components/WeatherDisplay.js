@@ -1,86 +1,69 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { WeatherContext } from "../hooks/useWeather";
+import { WeatherContext } from "../context/WeatherContext";
 
+var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const WeatherContainer = styled.div`
   color: white;
   padding: 30px;
+  width:90%;
   border-radius: 20px;
-  width: 90%;
-  max-width: 500px;
   margin: 20px auto;
   text-align: center;
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content */
-  justify-content: center;
+  align-items: center;
+  justify-content: space-arround;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+`;
+
+const MainWeather = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 2;
+  text-align: center;
 
   h2 {
+    font-size: 32px;
     margin-bottom: 20px;
-    font-size: 28px;
-    font-weight: 600;
   }
 
   .temperature {
-    font-size: 48px;
+    font-size: 64px;
     font-weight: bold;
     margin: 20px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .condition {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: 22px;
     text-transform: capitalize;
   }
 
   .weather-icon {
-    width: 100px;
-    height: 100px;
-    margin: 10px 0;
+    width: 120px;
+    height: 120px;
   }
 
   .details {
     display: flex;
     justify-content: space-around;
-    align-items: center;
     width: 100%;
-    margin-top: 20px;
     background: rgba(255, 255, 255, 0.1);
     padding: 15px;
     border-radius: 10px;
+    margin-top: 20px;
   }
 
   .details p {
-    font-size: 16px;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  @media (max-width: 600px) {
-    padding: 20px;
-
-    h2 {
-      font-size: 24px;
-    }
-
-    .temperature {
-      font-size: 40px;
-    }
-
-    .condition {
-      font-size: 18px;
-    }
-
-    .details {
-      flex-direction: column;
-      gap: 10px;
-    }
+    font-size: 18px;
   }
 `;
 
@@ -88,8 +71,9 @@ const ForecastWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  flex: 1;
   margin-top: 30px;
+  width: 100%;
 
   .forecast-item {
     display: flex;
@@ -111,15 +95,13 @@ const ForecastWrapper = styled.div`
   }
 
   .forecast-item img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
 
-  @media (max-width: 600px) {
-    .forecast-item {
-      flex-direction: column;
-      gap: 5px;
-    }
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    width: 100%;
   }
 `;
 
@@ -156,14 +138,16 @@ const WeatherDisplay = () => {
 
   return (
     <WeatherContainer>
-      <h2>{weather.name}</h2>
-      <img src={iconUrl} alt={weather.weather[0].description} className="weather-icon" />
-      <p className="temperature">{weather.main.temp}°C</p>
-      <p className="condition">{weather.weather[0].description}</p>
-      <div className="details">
-        <p>Humidity: {weather.main.humidity}%</p>
-        <p>Wind: {weather.wind.speed} m/s</p>
-      </div>
+      <MainWeather>
+        <h2>{weather.name}</h2>
+        <img src={iconUrl} alt={weather.weather[0].description} className="weather-icon" />
+        <p className="temperature">{weather.main.temp}°C</p>
+        <p className="condition">{weather.weather[0].description}</p>
+        <div className="details">
+          <p>Humidity: {weather.main.humidity}%</p>
+          <p>Wind: {weather.wind.speed} m/s</p>
+        </div>
+      </MainWeather>
 
       {/* 5-Day Forecast */}
       {forecast && (

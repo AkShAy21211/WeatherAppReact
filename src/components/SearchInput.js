@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import styled from "styled-components";
-import { WeatherContext } from "../hooks/useWeather";
+import { WeatherContext } from "../context/WeatherContext";
 
 const SearchContainer = styled.div`
   display: flex;

@@ -3,10 +3,6 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #6b11cbda, #2575fc);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
 }
 
 h1 {
@@ -26,4 +22,7 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+::-webkit-scrollbar {
+  display: none;
 }

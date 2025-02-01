@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import WeatherProvider from "../hooks/useWeather";
+import WeatherProvider from "../context/WeatherContext";
 import SearchInput from "../components/SearchInput";
 import WeatherDisplay from "../components/WeatherDisplay";
 
