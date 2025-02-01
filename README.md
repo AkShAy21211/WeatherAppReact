@@ -30,19 +30,13 @@ cd react-weather-dashboard
 npm install
 
 # Create a .env file and add your API key
-REACT_APP_WEATHER_API_KEY=your_api_key_here
+REACT_APP_OPENWEATHER_API_KEY=''
+REACT_APP_OPENWEATHER_API_URL=''
 
 # Start the application
 npm run dev
 ```
 
-## 🔄 API Usage & Example Call
-```bash
-fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY')
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error('Error fetching weather data:', error));
-```
 
 ## 📂 Project Structure
 ```bash
