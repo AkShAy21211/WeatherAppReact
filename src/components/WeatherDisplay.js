@@ -2,6 +2,8 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { WeatherContext } from "../hooks/useWeather";
 
+
+var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const WeatherContainer = styled.div`
   color: white;
   padding: 30px;
@@ -168,7 +170,7 @@ const WeatherDisplay = () => {
         <ForecastWrapper>
           {forecast.map((item, index) => (
             <div key={index} className="forecast-item">
-              <span>{new Date(item.dt * 1000).toLocaleDateString()}</span>
+              <span>{days[new Date(item.dt * 1000).getDay()]}</span>
               <span>{item.main.temp}°C</span>
               <img src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`} alt={item.weather[0].description} />
             </div>
