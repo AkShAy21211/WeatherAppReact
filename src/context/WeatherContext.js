@@ -3,7 +3,7 @@ export const WeatherContext = createContext();
 
 const API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
 const API_URL = process.env.REACT_APP_OPENWEATHER_API_URL;
-const FORECAST_URL = process.env.REACT_APP_OPENWEATHERICON_URL;
+const FORECAST_URL = process.env.REACT_APP_OPENWEATHER_API_URL;
 
 const WeatherProvider = ({ children }) => {
   const [weather, setWeather] = useState(null);
@@ -30,7 +30,7 @@ const WeatherProvider = ({ children }) => {
   const fetchWeather = async (cityName) => {
     try {
       const response = await fetch(
-        `${API_URL}?q=${cityName}&appid=${API_KEY}&units=metric`
+        `${API_URL}/weather?q=${cityName}&appid=${API_KEY}&units=metric`
       );
       if (!response.ok) throw new Error("City not found");
       const data = await response.json();
@@ -49,7 +49,7 @@ const WeatherProvider = ({ children }) => {
   const fetchWeatherForecast = async (lat, lon) => {
     try {
         const response = await fetch(
-            `${FORECAST_URL}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+            `${FORECAST_URL}/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
         );
         if (!response.ok) throw new Error("Forecast data not available");
         const data = await response.json();
