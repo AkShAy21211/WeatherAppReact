@@ -62,7 +62,8 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_K
 ```
 
 ## 🎨 UI Preview
-![Weather Dashboard Screenshot](https://via.placeholder.com/600x300)
+![image](https://github.com/user-attachments/assets/b0428c45-c271-4289-bb62-510569094fc2)
+
 
 
 ## 📜 License
