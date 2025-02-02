@@ -34,7 +34,7 @@ REACT_APP_OPENWEATHER_API_KEY=''
 REACT_APP_OPENWEATHER_API_URL=''
 
 # Start the application
-npm run dev
+npm start
 ```
 
 
