@@ -47,6 +47,8 @@ npm start
  ┃ ┃ ┣ 📜 WeatherDisplay.js # Displays weather info
  ┃ ┣ 📂 context
  ┃ ┃ ┣ 📜 WeatherContext.js # Context API setup
+ ┃ ┣ 📂 pages
+ ┃ ┃ ┣ 📜 WeatherDashboard.js # Dashboard page
  ┃ ┣ 📜 App.js              # Main application
  ┃ ┣ 📜 index.js            # Entry point
  ┃ ┣ 📜 index.css           # styles of body
